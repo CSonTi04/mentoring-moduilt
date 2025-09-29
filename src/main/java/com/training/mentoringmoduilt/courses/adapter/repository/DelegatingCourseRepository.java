@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class DelegatingCourseRepository implements CourseRepository {
 
-
     private final CourseJpaRepository jpaRepository;
 
     @Override
