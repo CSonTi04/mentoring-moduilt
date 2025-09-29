@@ -1,7 +1,6 @@
 package com.training.mentoringmoduilt.courses.adapter.controller;
 
 import com.training.mentoringmoduilt.courses.application.AnnouncementRequest;
-import com.training.mentoringmoduilt.courses.application.CourseApplicationService;
 import com.training.mentoringmoduilt.courses.application.inboundport.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

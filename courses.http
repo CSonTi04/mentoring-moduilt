@@ -1,0 +1,8 @@
+### Announce a new course
+POST http://localhost:8080/api/courses
+Content-Type: application/json
+
+{
+    "code": "JAVAX-DDD",
+    "title": "Java and DDD"
+}
