@@ -2,6 +2,7 @@ package com.training.mentoringmoduilt.courses.adapter.repository;
 
 import com.training.mentoringmoduilt.courses.application.outboundport.CourseRepository;
 import com.training.mentoringmoduilt.courses.domain.courses.Course;
+import com.training.mentoringmoduilt.courses.domain.courses.CourseCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -17,7 +18,12 @@ public class DelegatingCourseRepository implements CourseRepository {
 
     @Override
     public void save(Course course) {
-        var japEntity = new CourseJpaEntity(course.getCode().code(), course.getTitle());
-        jpaRepository.save(japEntity);
+        var jpaEntity = new CourseJpaEntity(course.getCode().code(), course.getTitle());
+        jpaRepository.save(jpaEntity);
+    }
+
+    @Override
+    public boolean existsWithCode(CourseCode code) {
+        return jpaRepository.existsById(code.code());
     }
 }

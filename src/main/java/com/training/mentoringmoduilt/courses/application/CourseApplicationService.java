@@ -29,9 +29,12 @@ public class CourseApplicationService implements com.training.mentoringmoduilt.c
     //tesztelőknek jó lehet, ha itt visszatérünk valami azonosítóval
 
     //TODO: kellene validáció, hogy ne lehessen duplikáció az id-n
-    //TODO: kódnak nem szabadna egy karakteresnek lennie
     @Override
     public void announceCourse(AnnouncementRequest request) {
+        var code = new CourseCode(request.code());
+        if(courseRepository.existsWithCode(code)){
+            throw new IllegalArgumentException("Course with code %s already exists".formatted(request.code()));
+        }
         var course = Course.announce(new CourseCode(request.code()), request.title());
         courseRepository.save(course);
     }
