@@ -1,7 +1,7 @@
 package com.training.mentoringmoduilt.courses.adapter.controller;
 
 import com.training.mentoringmoduilt.courses.application.AnnouncementRequest;
-import com.training.mentoringmoduilt.courses.application.inboundport.CourseService;
+import com.training.mentoringmoduilt.courses.application.usecase.AnnnouncementUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.*;
 //az adott osztály interfésze az osztály public metódusai
 public class CourseController {
 
-    private final CourseService service;
-
+    private final AnnnouncementUseCase useCase;
     //exception nem rest specifikus, így ne tegyünk az exception-re http statuszt
     //az application layer-ből jön a request, az ok, kintról befelé lehet hivatkozni
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createCourse(@RequestBody AnnouncementRequest request) {
-        service.announceCourse(request);
+        useCase.announceCourse(request);
     }
 }
