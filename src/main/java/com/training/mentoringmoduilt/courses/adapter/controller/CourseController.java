@@ -1,0 +1,26 @@
+package com.training.mentoringmoduilt.courses.adapter.controller;
+
+import com.training.mentoringmoduilt.courses.application.AnnouncementRequest;
+import com.training.mentoringmoduilt.courses.application.CourseApplicationService;
+import com.training.mentoringmoduilt.courses.application.inboundport.CourseService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/api/courses")
+//inbound adater és port nincsen szétválsztva
+//az adott osztály interfésze az osztály public metódusai
+public class CourseController {
+
+    private final CourseService service;
+
+    //exception nem rest specifikus, így ne tegyünk az exception-re http statuszt
+    //az application layer-ből jön a request, az ok, kintról befelé lehet hivatkozni
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createCourse(@RequestBody AnnouncementRequest request) {
+        service.announceCourse(request);
+    }
+}

@@ -1,6 +1,7 @@
 package com.training.mentoringmoduilt.courses.application;
 
 
+import com.training.mentoringmoduilt.courses.application.outboundport.CourseRepository;
 import com.training.mentoringmoduilt.courses.domain.courses.Course;
 import com.training.mentoringmoduilt.courses.domain.courses.CourseCode;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 //ez már használhat Bean validation-t, Mapstruct-ot, hívhat repositorít, fogadhat hívásokat controllertől, használhat springet, di-t etc-etc
 @Service
 @RequiredArgsConstructor
-public class CourseApplicationService {
+public class CourseApplicationService implements com.training.mentoringmoduilt.courses.application.inboundport.CourseService {
 
     //itt code string legyen vagy CourseCode?
     //metódus paramétereket hízlalni nem jó, ezért érdemes DTO-t használni
@@ -26,6 +27,7 @@ public class CourseApplicationService {
     //külsőkkel tartja a kapcsolatot, de az entitásban van az üzleti logika
     //kell majd egy repository interface, ami egy port lesz, azaz egy outbound adapter
     //tesztelőknek jó lehet, ha itt visszatérünk valami azonosítóval
+    @Override
     public void announceCourse(AnnouncementRequest request) {
         var course = Course.announce(new CourseCode(request.code()), request.title());
         courseRepository.save(course);
