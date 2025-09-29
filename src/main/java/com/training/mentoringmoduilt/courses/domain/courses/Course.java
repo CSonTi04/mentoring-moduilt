@@ -11,6 +11,8 @@ public class Course {
     //azért nincs setter, mert mondjuk egy cím esetén az lehetne move, mint költözés, vagy fix mint javítás
 
     //2003-ban nem volt még immutability, de most már van, így ott kérdéses, hogy mi legyen -> az inkább functional programming
+    //ha egy entity létrehozása bonyolult akkor hasnzálj factory-t vagy builder-t -> bilder gang of four-os, de itt a builder az lehet factory is
+    //gang of four factory vs DDD factory
     private final CourseCode code;
 
     private final String title;
