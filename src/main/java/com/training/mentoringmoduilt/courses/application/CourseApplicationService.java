@@ -27,6 +27,9 @@ public class CourseApplicationService implements com.training.mentoringmoduilt.c
     //külsőkkel tartja a kapcsolatot, de az entitásban van az üzleti logika
     //kell majd egy repository interface, ami egy port lesz, azaz egy outbound adapter
     //tesztelőknek jó lehet, ha itt visszatérünk valami azonosítóval
+
+    //TODO: kellene validáció, hogy ne lehessen duplikáció az id-n
+    //TODO: kódnak nem szabadna egy karakteresnek lennie
     @Override
     public void announceCourse(AnnouncementRequest request) {
         var course = Course.announce(new CourseCode(request.code()), request.title());

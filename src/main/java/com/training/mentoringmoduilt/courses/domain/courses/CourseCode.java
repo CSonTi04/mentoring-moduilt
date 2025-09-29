@@ -9,5 +9,8 @@ public record CourseCode(String code) {
         if (code == null || code.isBlank()) {
             throw new IllegalArgumentException("Course code cannot be null or blank");
         }
+        if (code.length() < 2) {
+            throw new IllegalArgumentException("Course code must be longer than 1 characters long");
+        }
     }
 }

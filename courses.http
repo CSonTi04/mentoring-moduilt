@@ -6,3 +6,12 @@ Content-Type: application/json
     "code": "JAVAX-DDD",
     "title": "Java and DDD"
 }
+
+### Code validation error - problem details szabvány
+POST http://localhost:8080/api/courses
+Content-Type: application/json
+
+{
+  "code": "J",
+  "title": "Java and DDD"
+}
