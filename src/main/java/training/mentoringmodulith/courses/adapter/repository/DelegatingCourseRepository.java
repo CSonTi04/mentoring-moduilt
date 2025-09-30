@@ -19,9 +19,11 @@ public class DelegatingCourseRepository implements CourseRepository {
 
     private final CourseJpaRepository jpaRepository;
 
+    private final CourseMapper courseMapper;
+
     @Override
     public void save(Course course) {
-        var jpaEntity = new CourseJpaEntity(course.getCode().code(), course.getTitle());
+        var jpaEntity = courseMapper.toEntity(course);
         jpaRepository.save(jpaEntity);
     }
 
@@ -33,5 +35,13 @@ public class DelegatingCourseRepository implements CourseRepository {
     @Override
     public List<CourseDto> findAll() {
         return jpaRepository.findAllDto();
+    }
+
+    //ide már lehet kellene a mapstruct is?
+    //lett is
+    @Override
+    public Course findById(CourseCode courseCode) {
+        var entity = jpaRepository.findByIdWithEnrollments(courseCode.code());
+        return courseMapper.toDomain(entity);
     }
 }

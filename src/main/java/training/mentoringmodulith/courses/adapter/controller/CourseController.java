@@ -1,9 +1,6 @@
 package training.mentoringmodulith.courses.adapter.controller;
 
-import training.mentoringmodulith.courses.application.inboundport.AnnouncementRequest;
-import training.mentoringmodulith.courses.application.inboundport.CourseDto;
-import training.mentoringmodulith.courses.application.inboundport.CourseQueryService;
-import training.mentoringmodulith.courses.application.inboundport.CourseService;
+import training.mentoringmodulith.courses.application.inboundport.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,13 +17,14 @@ public class CourseController {
     private final CourseService serivce;
 
     private final CourseQueryService queryService;
+
     //exception nem rest specifikus, így ne tegyünk az exception-re http statuszt
     //az application layer-ből jön a request, az ok, kintról befelé lehet hivatkozni
     //tranzaikcióban fut a mögöttes implementáció, mert módosít adatot
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createCourse(@RequestBody AnnouncementRequest request) {
-        serivce.announceCourse(request);
+        serivce.announce(request);
     }
 
 
@@ -49,5 +47,17 @@ public class CourseController {
     @ResponseStatus(HttpStatus.OK)
     public List<CourseDto> findAll() {
         return queryService.findAll();
+    }
+
+
+    //URL nem jó, nem felel meg a rest-nek, kell a kövitő /courses/{courseCode}/enrollments
+    //most path variable-ben és a request body-ban is benne van a courseCode
+    @PostMapping({"/{courseCode}/enrollments"})
+    @ResponseStatus(HttpStatus.CREATED)
+    public void enroll(@PathVariable String courseCode, @RequestBody EnrollmentRequest request) {
+        if(!courseCode.equals(request.courseCode())) {
+            throw new IllegalArgumentException("Course code in path and body must be the same");
+        }
+        serivce.enroll(request);
     }
 }

@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import training.mentoringmodulith.courses.application.inboundport.CourseDto;
 
 import java.util.List;
+import java.util.Optional;
 
 //ez az interface - port
 public interface CourseJpaRepository extends JpaRepository<CourseJpaEntity, String> {
@@ -17,4 +18,12 @@ public interface CourseJpaRepository extends JpaRepository<CourseJpaEntity, Stri
             ) from CourseJpaEntity c order by c.code
         """)
     List<CourseDto> findAllDto();
+
+    //ide lehet nem kell a distinct, de join fetch miatt kellhet
+    @Query(
+        """
+            select distinct c from CourseJpaEntity c join fetch c.enrollments where c.code = :code
+        """
+    )
+    CourseJpaEntity findByIdWithEnrollments(String code);
 }

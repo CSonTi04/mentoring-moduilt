@@ -13,4 +13,6 @@ public interface CourseRepository {
     boolean existsWithCode(CourseCode code);
 
     List<CourseDto> findAll();
+
+    Course findById(CourseCode courseCode);
 }

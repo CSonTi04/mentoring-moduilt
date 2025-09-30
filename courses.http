@@ -3,8 +3,9 @@ POST http://localhost:8080/api/courses
 Content-Type: application/json
 
 {
-    "code": "JAVAX-DDD",
-    "title": "Java and DDD"
+  "code": "JAVAX-DDD",
+  "title": "Java and DDD",
+  "limit": 10
 }
 
 ### Code validation error - problem details szabvány
@@ -13,8 +14,18 @@ Content-Type: application/json
 
 {
   "code": "J",
-  "title": "Java and DDD"
+  "title": "Java and DDD",
+  "limit": 10
 }
 
 ### Get all
 GET http://localhost:8080/api/courses
+
+### Enroll a student
+POST http://localhost:8080/api/courses/JAVAX-DDD/enrollments
+Content-Type: application/json
+
+{
+  "employeeId": 1,
+  "courseCode": "JAVAX-DDD"
+}

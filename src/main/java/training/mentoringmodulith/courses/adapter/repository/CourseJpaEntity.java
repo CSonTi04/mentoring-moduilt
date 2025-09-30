@@ -1,11 +1,13 @@
 package training.mentoringmodulith.courses.adapter.repository;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 //Nem működik az attribute converterrel
 //törekedjünk, hogy 5-7 legyen max a fieldek száma
@@ -14,10 +16,17 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter @Setter
+@Table(name = "courses")
 //Lombok @Data nem jó,
 public class CourseJpaEntity {
     @Id
     private String code;
 
     private String title;
+
+    @Column(name = "headcount")
+    private int limit;
+
+    @OneToMany(mappedBy = "course")
+    private List<EnrollmentJpaEntity> enrollments = new ArrayList<>();
 }
