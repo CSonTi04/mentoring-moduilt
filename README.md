@@ -10,7 +10,100 @@ This is a **proof-of-concept (POC)** project demonstrating **Domain-Driven Desig
 
 > **⚠️ Pivot Decision (2025-09-30)**: After this commit, the **courses aggregate** will be responsible for handling **jelentkezések (registrations)**, not just announcing courses. This architectural decision was made to save development time and simplify the domain model for the POC. In a production system, registrations might warrant their own bounded context and aggregate.
 
-### Key Architectural Concepts Demonstrated
+## Ubiquitous Language
+
+This section documents the domain terminology used throughout the system. These terms form the **ubiquitous language** that bridges the gap between domain experts and developers.
+
+### Core Domain Concepts
+
+#### Course Management
+- **Course** - A training program that can be announced and enrolled in
+- **Course Code** - Unique identifier for a course (minimum 2 characters, alphanumeric)
+- **Course Title** - Descriptive name of the course
+- **Announce** - The act of making a course available for enrollment
+- **Announcement** - The process/event of creating a new course offering
+
+#### Registration & Enrollment (Planned)
+- **Jelentkezés** - Hungarian term for "registration" or "enrollment"
+- **Enrollment** - The act of registering for a course
+- **Employee ID** - Identifier for the person enrolling in the course
+- **Enrollment Date** - When the registration took place
+- **Headcount** - Maximum number of participants allowed in a course
+- **Max Headcount** - The enrollment limit for a course
+
+### Business Rules & Constraints
+
+#### Course Rules
+- **Unique Course Code** - No two courses can have the same code
+- **Non-blank Title** - Course must have a meaningful title
+- **Single Registration** - One person can only register once per course
+- **Capacity Limit** - Courses have maximum enrollment capacity
+
+#### Validation Rules
+- **Course Code Validation** - Must not be null, blank, and minimum 2 characters
+- **Title Validation** - Must not be null or blank
+- **Duplicate Prevention** - System prevents duplicate course codes
+
+### Technical Domain Language
+
+#### Architecture Patterns
+- **Aggregate** - Consistency boundary around related domain objects
+- **Entity** - Domain object with identity that can change over time
+- **Value Object (VO)** - Immutable domain object defined by its attributes
+- **Factory Method** - Pattern for creating domain objects (e.g., `Course.announce()`)
+- **Domain Service** - Service containing domain logic that doesn't belong to entities
+
+#### Ports & Adapters
+- **Inbound Port** - Interface defining application use cases
+- **Outbound Port** - Interface defining external dependencies
+- **Primary Adapter** - External interface adapting to application (REST controllers)
+- **Secondary Adapter** - Implementation adapting application to external systems (repositories)
+
+#### CQRS Terminology
+- **Command** - Request to modify system state
+- **Query** - Request to retrieve data without modification
+- **Command Handler** - Processes state-changing operations
+- **Query Handler** - Processes data retrieval operations
+
+### Data Transfer Objects (DTOs)
+
+#### Input/Output Models
+- **AnnouncementRequest** - Command DTO for creating courses
+- **CourseDto** - Query DTO for course data representation
+- **CourseJpaEntity** - Persistence model for database mapping
+
+### Domain Events (Future)
+- **Course Announced** - Event published when a new course is created
+- **Student Enrolled** - Event published when enrollment occurs
+- **Enrollment Rejected** - Event published when enrollment fails (capacity/duplicate)
+
+### Bounded Context Terms
+- **Course Management Context** - The boundary containing course and enrollment logic
+- **Employee Context** - (Future) Context managing employee information
+- **Training Context** - (Future) Context managing training content and materials
+
+### Hungarian Domain Terms
+- **Jelentkezés** - Registration/Enrollment
+- **Kurzus** - Course
+- **Képzés** - Training
+- **Résztvevő** - Participant
+- **Létszám** - Headcount/Capacity
+
+### Design Patterns in Domain
+- **Factory Pattern** - `Course.announce()` creates new course instances
+- **Builder Pattern** - (Future) For complex course creation
+- **Repository Pattern** - Data access abstraction
+- **Specification Pattern** - (Future) For complex business rules
+
+### Validation Concepts
+- **Defensive Programming** - Validating inputs at domain boundaries
+- **Invariant** - Business rule that must always be true
+- **Consistency** - Ensuring domain rules are maintained
+- **Domain Validation** - Business rule validation within domain objects
+
+This ubiquitous language ensures consistent terminology across the development team and aligns technical implementation with business concepts.
+
+## Key Architectural Concepts Demonstrated
 
 - **Hexagonal Architecture**: Clear separation between business logic and external concerns
 - **Domain-Driven Design**: Rich domain models with business logic encapsulation
