@@ -4,6 +4,8 @@
 
 This is a **proof-of-concept (POC)** project demonstrating **Domain-Driven Design (DDD)** principles implemented through **Hexagonal Architecture** (also known as Ports and Adapters pattern). The project showcases a course management system built as a modular monolith using Spring Boot.
 
+**Reference Repository**: This project is based on the training materials from [Training360's DDD Training Repository](https://github.com/Training360/javax-ddd-training-2025-09-29).
+
 ### Key Architectural Concepts Demonstrated
 
 - **Hexagonal Architecture**: Clear separation between business logic and external concerns
