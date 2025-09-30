@@ -17,6 +17,10 @@ public class Course {
     //DDD-t nem éri meg tesztelés nélkül használni, ert a lényeg a domain logika, nem kell semmit mockolni, mert nincs külső függőség
     //a domain logika tesztelése a lényeg, nem a frameworkök
     //még mindig nem éri meg a crud szintű témákhoz
+
+    //TODO jelentkezés kezelés
+    //TODO van max headcount
+    //TODO egy ember csak egyszer jelentkezhet
     private final CourseCode code;
 
     private final String title;
