@@ -1,4 +1,4 @@
-package training.mentoringmodulith.courses.domain.courses;
+package training.mentoringmodulith.courses.domain.enrollments;
 
 import lombok.Getter;
 
