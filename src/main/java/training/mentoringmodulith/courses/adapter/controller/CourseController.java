@@ -52,6 +52,7 @@ public class CourseController {
 
     //URL nem jó, nem felel meg a rest-nek, kell a kövitő /courses/{courseCode}/enrollments
     //most path variable-ben és a request body-ban is benne van a courseCode
+    //legyen validáció, hogy employee létezik-e
     @PostMapping({"/{courseCode}/enrollments"})
     @ResponseStatus(HttpStatus.CREATED)
     public void enroll(@PathVariable String courseCode, @RequestBody EnrollmentRequest request) {
