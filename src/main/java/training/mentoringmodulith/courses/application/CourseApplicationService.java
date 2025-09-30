@@ -1,10 +1,10 @@
-package training.mentoringmoduilth.courses.application;
+package training.mentoringmodulith.courses.application;
 
 
-import training.mentoringmoduilth.courses.application.inboundport.CourseService;
-import training.mentoringmoduilth.courses.application.outboundport.CourseRepository;
-import training.mentoringmoduilth.courses.domain.courses.Course;
-import training.mentoringmoduilth.courses.domain.courses.CourseCode;
+import training.mentoringmodulith.courses.application.inboundport.CourseService;
+import training.mentoringmodulith.courses.application.outboundport.CourseRepository;
+import training.mentoringmodulith.courses.domain.courses.Course;
+import training.mentoringmodulith.courses.domain.courses.CourseCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

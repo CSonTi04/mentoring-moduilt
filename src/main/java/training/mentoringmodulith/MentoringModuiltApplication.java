@@ -1,4 +1,4 @@
-package training.mentoringmoduilth;
+package training.mentoringmodulith;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

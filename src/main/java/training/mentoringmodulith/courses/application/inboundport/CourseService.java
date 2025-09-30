@@ -1,6 +1,6 @@
-package training.mentoringmoduilth.courses.application.inboundport;
+package training.mentoringmodulith.courses.application.inboundport;
 
-import training.mentoringmoduilth.courses.application.AnnouncementRequest;
+import training.mentoringmodulith.courses.application.AnnouncementRequest;
 
 public interface CourseService {
     //külsőkkel tartja a kapcsolatot, de az entitásban van az üzleti logika

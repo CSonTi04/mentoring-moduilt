@@ -1,4 +1,4 @@
-package training.mentoringmoduilth.courses.adapter.repository;
+package training.mentoringmodulith.courses.adapter.repository;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
