@@ -21,6 +21,9 @@ public class Course {
     //TODO jelentkezés kezelés
     //TODO van max headcount
     //TODO egy ember csak egyszer jelentkezhet
+    //ez a course csak a jelentkezés adatait reprezentálja, nem az árat, vagy a temiatikát
+    //ehhez lesz egy enrollment entity
+    //Enrollment -> EMployeeId, meg enrollmentDate
     private final CourseCode code;
 
     private final String title;
