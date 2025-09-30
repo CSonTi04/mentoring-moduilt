@@ -1,8 +1,6 @@
 package training.mentoringmodulith.courses.adapter.repository;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 import training.mentoringmodulith.courses.domain.enrollments.Course;
 import training.mentoringmodulith.courses.domain.enrollments.CourseCode;
 import training.mentoringmodulith.courses.domain.enrollments.EmployeeId;
@@ -37,8 +35,6 @@ public interface CourseMapper {
         );
     }
 
-    @Mapping(target = "code", ignore = true)
-// Assuming id is auto-generated
     CourseJpaEntity toEntity(Course course);
 
     Enrollment toDomain(EnrollmentJpaEntity entity);

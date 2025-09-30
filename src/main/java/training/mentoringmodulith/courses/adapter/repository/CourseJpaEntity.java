@@ -24,9 +24,11 @@ public class CourseJpaEntity {
 
     private String title;
 
-    @Column(name = "headcount")
+    @Column(name = "enrollment_limit")
     private int limit;
 
-    @OneToMany(mappedBy = "course")
+    //oprhan removal - ha a listából kiveszem, akkor törlődik az adatbázisból is
+    //cascade all - ha a course törlődik, akkor az összes enrollment is -> ez szerintem risky
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EnrollmentJpaEntity> enrollments = new ArrayList<>();
 }
