@@ -1,9 +1,9 @@
-package com.training.mentoringmoduilt.courses.application;
+package com.training.mentoringmoduilth.courses.application;
 
 
-import com.training.mentoringmoduilt.courses.application.outboundport.CourseRepository;
-import com.training.mentoringmoduilt.courses.domain.courses.Course;
-import com.training.mentoringmoduilt.courses.domain.courses.CourseCode;
+import com.training.mentoringmoduilth.courses.application.outboundport.CourseRepository;
+import com.training.mentoringmoduilth.courses.domain.courses.Course;
+import com.training.mentoringmoduilth.courses.domain.courses.CourseCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 //ez már használhat Bean validation-t, Mapstruct-ot, hívhat repositorít, fogadhat hívásokat controllertől, használhat springet, di-t etc-etc
 @Service
 @RequiredArgsConstructor
-public class CourseApplicationService implements com.training.mentoringmoduilt.courses.application.inboundport.CourseService {
+public class CourseApplicationService implements com.training.mentoringmoduilth.courses.application.inboundport.CourseService {
 
     //itt code string legyen vagy CourseCode?
     //metódus paramétereket hízlalni nem jó, ezért érdemes DTO-t használni

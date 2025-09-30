@@ -1,7 +1,7 @@
-package com.training.mentoringmoduilt.courses.adapter.controller;
+package com.training.mentoringmoduilth.courses.adapter.controller;
 
-import com.training.mentoringmoduilt.courses.application.AnnouncementRequest;
-import com.training.mentoringmoduilt.courses.application.usecase.AnnnouncementUseCase;
+import com.training.mentoringmoduilth.courses.application.AnnouncementRequest;
+import com.training.mentoringmoduilth.courses.application.usecase.AnnnouncementUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

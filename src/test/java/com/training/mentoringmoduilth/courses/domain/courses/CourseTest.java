@@ -1,4 +1,4 @@
-package com.training.mentoringmoduilt.courses.domain.courses;
+package com.training.mentoringmoduilth.courses.domain.courses;
 
 
 import org.junit.jupiter.api.Test;

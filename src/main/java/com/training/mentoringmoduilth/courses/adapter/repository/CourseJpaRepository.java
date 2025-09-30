@@ -1,4 +1,4 @@
-package com.training.mentoringmoduilt.courses.adapter.repository;
+package com.training.mentoringmoduilth.courses.adapter.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 //ez az interface - port

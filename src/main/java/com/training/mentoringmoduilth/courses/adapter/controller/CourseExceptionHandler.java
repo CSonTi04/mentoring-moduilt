@@ -1,4 +1,4 @@
-package com.training.mentoringmoduilt.courses.adapter.controller;
+package com.training.mentoringmoduilth.courses.adapter.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

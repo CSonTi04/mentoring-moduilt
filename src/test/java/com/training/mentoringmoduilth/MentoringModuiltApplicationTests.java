@@ -1,4 +1,4 @@
-package com.training.mentoringmoduilt;
+package com.training.mentoringmoduilth;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

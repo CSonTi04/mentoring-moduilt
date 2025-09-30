@@ -1,4 +1,4 @@
-package com.training.mentoringmoduilt.courses.application;
+package com.training.mentoringmoduilth.courses.application;
 
 import jakarta.validation.constraints.NotNull;
 

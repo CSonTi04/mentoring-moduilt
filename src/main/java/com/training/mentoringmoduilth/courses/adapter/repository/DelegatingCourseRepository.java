@@ -1,8 +1,8 @@
-package com.training.mentoringmoduilt.courses.adapter.repository;
+package com.training.mentoringmoduilth.courses.adapter.repository;
 
-import com.training.mentoringmoduilt.courses.application.outboundport.CourseRepository;
-import com.training.mentoringmoduilt.courses.domain.courses.Course;
-import com.training.mentoringmoduilt.courses.domain.courses.CourseCode;
+import com.training.mentoringmoduilth.courses.application.outboundport.CourseRepository;
+import com.training.mentoringmoduilth.courses.domain.courses.Course;
+import com.training.mentoringmoduilth.courses.domain.courses.CourseCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
