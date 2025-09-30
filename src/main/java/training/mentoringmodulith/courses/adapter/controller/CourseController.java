@@ -34,6 +34,13 @@ public class CourseController {
     //5-nél több select esetén gondoljuk át -> hibernate logok alapján
     //elastic search, de már a mongo db is már jó lehet szöveges keresésre
     //így egy mentés mehet az elastic-ba és a postgresql-be is, keresés meg az elastic-ben
+    //Command és query ág között gyakran használnak event-et
+    //Command-ot és query-t külön szolgáltatásban/alkalmazásban is megvalósíthatjuk, így külön skálázhatók -> majdhogynem a végtelenségig
+    //a kettőt egy kafka kötheti össze
+    //query ágon akár lehet, hogy képernyőként vannak a táblák, mint egy data warehouse-ban
+    //így a join-t megpróbálhatjuk, updatet viszont akkor mindenre kell futtatni
+    //ezt hívják denormalizációnak, vagy csillag architektúra, ami a data warehouse-okban jellemző | OLAP
+    //az architektúra nem kőbe vésett, készüljünk fel arra, hogy módosítható legyen
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<CourseDto> findAll() {
