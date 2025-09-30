@@ -1,41 +1,30 @@
 package training.mentoringmodulith.courses.adapter.repository;
 
 import org.mapstruct.Mapper;
-import training.mentoringmodulith.courses.domain.enrollments.Course;
-import training.mentoringmodulith.courses.domain.enrollments.CourseCode;
-import training.mentoringmodulith.courses.domain.enrollments.EmployeeId;
-import training.mentoringmodulith.courses.domain.enrollments.Enrollment;
+import training.mentoringmodulith.courses.domain.enrollments.*;
 
 @Mapper(componentModel = "spring")
 public interface CourseMapper {
 
-    default String mapCourseCOde(CourseCode courseCode) {
-        return courseCode.code();
+    default String map(CourseCode code) {
+        return code.code();
     }
 
-    default Long mapEmployeeId(EmployeeId id) {
-        return id.value();
+    default CourseCode map(String code) {
+        return new CourseCode(code);
     }
 
-    default EmployeeId mapToEmployeeId(Long id) {
-        return new EmployeeId(id);
+    default Long map(EmployeeId employeeId) {
+        return employeeId.value();
     }
 
-    default Course toDomain(CourseJpaEntity entity) {
-        if (entity == null) {
-            return null;
-        }
-
-        // Assuming Course has a factory method or constructor that takes these parameters
-        // Adjust the parameters according to the actual Course creation method
-        return Course.announce(
-                new CourseCode(entity.getCode()),
-                entity.getTitle(),
-                entity.getLimit()
-        );
+    default EmployeeId map(Long employeeId) {
+        return new EmployeeId(employeeId);
     }
 
     CourseJpaEntity toEntity(Course course);
+
+    Course toDomain(CourseJpaEntity entity);
 
     Enrollment toDomain(EnrollmentJpaEntity entity);
 }

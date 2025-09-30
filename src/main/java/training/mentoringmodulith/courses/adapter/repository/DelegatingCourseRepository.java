@@ -23,13 +23,12 @@ public class DelegatingCourseRepository implements CourseRepository {
 
     @Override
     public void save(Course course) {
-        var jpaEntity = courseMapper.toEntity(course);
         //kézzel vissazfele referenciák bekötése -> ezt mjad mapstructtal meg kell csinálni
         var jpa = courseMapper.toEntity(course);
-        for(var enrollment : jpa.getEnrollments()){
+        for (var enrollment : jpa.getEnrollments()) {
             enrollment.setCourse(jpa);
         }
-        jpaRepository.save(jpaEntity);
+        jpaRepository.save(jpa);
     }
 
     @Override

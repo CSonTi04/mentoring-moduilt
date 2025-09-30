@@ -1,5 +1,6 @@
 package training.mentoringmodulith.courses.domain.enrollments;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Getter
+@AllArgsConstructor//csak a JPA-hoz, kellene valmai warning
 public class Course {
     //azért nem final, mert az entitást lehet módosítani, de üzleti döntés kell, hogy mi módosítható
 
@@ -77,7 +79,7 @@ public class Course {
         return new EnrollmentVO(employeeId, LocalDateTime.now());
     }
 
-    public List<EnrollmentVO> getEnrollments() {
+    public List<EnrollmentVO> getEnrollmentVOs() {
         return enrollments.stream()
                 .map(e -> new EnrollmentVO(e.getEmployeeId(), e.getEnrollmentDate()))
                 .toList();

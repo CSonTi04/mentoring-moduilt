@@ -50,7 +50,7 @@ class CourseTest {
         void enroll() {
             var employeeId = new EmployeeId(10L);
             course.enroll(employeeId);
-            assertThat(course.getEnrollments()).extracting(EnrollmentVO::employeeId).containsExactly(employeeId);
+            assertThat(course.getEnrollmentVOs()).extracting(EnrollmentVO::employeeId).containsExactly(employeeId);
         }
 
         @Test
