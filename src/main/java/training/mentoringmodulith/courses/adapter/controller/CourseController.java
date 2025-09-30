@@ -1,10 +1,14 @@
 package training.mentoringmodulith.courses.adapter.controller;
 
 import training.mentoringmodulith.courses.application.inboundport.AnnouncementRequest;
-import training.mentoringmodulith.courses.application.usecase.AnnouncementUseCase;
+import training.mentoringmodulith.courses.application.inboundport.CourseDto;
+import training.mentoringmodulith.courses.application.inboundport.CourseQueryService;
+import training.mentoringmodulith.courses.application.inboundport.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -13,12 +17,23 @@ import org.springframework.web.bind.annotation.*;
 //az adott osztály interfésze az osztály public metódusai
 public class CourseController {
 
-    private final AnnouncementUseCase useCase;
+    private final CourseService serivce;
+
+    private final CourseQueryService queryService;
     //exception nem rest specifikus, így ne tegyünk az exception-re http statuszt
     //az application layer-ből jön a request, az ok, kintról befelé lehet hivatkozni
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createCourse(@RequestBody AnnouncementRequest request) {
-        useCase.announceCourse(request);
+        serivce.announceCourse(request);
+    }
+
+
+    //más útvonalon megy, akarjuk-e keverni?
+    //CQRS -> Command Query mehet teljesen más technológiával
+    //5-nél több select esetén gondoljuk át -> hibernate logok alapján
+    @GetMapping
+    public List<CourseDto> findAll() {
+        return queryService.findAll();
     }
 }
