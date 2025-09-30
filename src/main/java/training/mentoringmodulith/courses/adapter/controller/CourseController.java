@@ -32,7 +32,10 @@ public class CourseController {
     //más útvonalon megy, akarjuk-e keverni?
     //CQRS -> Command Query mehet teljesen más technológiával
     //5-nél több select esetén gondoljuk át -> hibernate logok alapján
+    //elastic search, de már a mongo db is már jó lehet szöveges keresésre
+    //így egy mentés mehet az elastic-ba és a postgresql-be is, keresés meg az elastic-ben
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public List<CourseDto> findAll() {
         return queryService.findAll();
     }
