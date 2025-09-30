@@ -1,0 +1,13 @@
+### Employee joins
+POST http://localhost:8080/api/employees
+Content-Type: application/json
+
+{
+  "name": "John Doe"
+}
+
+### Get all employees
+GET http://localhost:8080/api/employees
+
+### Employee leaves
+DELETE http://localhost:8080/api/employees/1

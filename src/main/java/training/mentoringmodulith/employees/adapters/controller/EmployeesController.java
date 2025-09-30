@@ -16,6 +16,7 @@ public class EmployeesController {
 
     private final EmployeeApplicationService employeeApplicationService;
 
+    //nem create, anem csatlakozik a vállalathoz
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public EmployeeDto join(@RequestBody EmployeeDto employee) {
@@ -27,6 +28,7 @@ public class EmployeesController {
         return employeeApplicationService.findAll();
     }
 
+    //kilép a vállalattól
     @DeleteMapping("/{id}")
     public void leave(@PathVariable long id) {
         employeeApplicationService.leave(new EmployeeId(id));
