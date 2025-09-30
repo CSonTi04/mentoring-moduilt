@@ -36,11 +36,13 @@ public class CourseController {
     //így egy mentés mehet az elastic-ba és a postgresql-be is, keresés meg az elastic-ben
     //Command és query ág között gyakran használnak event-et
     //Command-ot és query-t külön szolgáltatásban/alkalmazásban is megvalósíthatjuk, így külön skálázhatók -> majdhogynem a végtelenségig
-    //a kettőt egy kafka kötheti össze
+    //a kettőt egy kafka kötheti össze -> egyszeri és csak egszeri üzenet továbbítása, ha gond van akkor kell a dead letter queue -> temporális problémát a retry megoldja, ha fejlesztési vagy akkut infra gond van meg kell oldani, majd az eredeti qure-ba vissza terelik az elemekt a dead letter queue-ból
+    //már db-k közötti szinkrónizáció is van, pl Debeziumm, megkerülve a kafkát -> így nincs klasszikus ACID, mert nagyon lassú -> helyette eventual consistency van (két generális dilemma) + KAB theorem
     //query ágon akár lehet, hogy képernyőként vannak a táblák, mint egy data warehouse-ban
     //így a join-t megpróbálhatjuk, updatet viszont akkor mindenre kell futtatni
     //ezt hívják denormalizációnak, vagy csillag architektúra, ami a data warehouse-okban jellemző | OLAP
     //az architektúra nem kőbe vésett, készüljünk fel arra, hogy módosítható legyen
+    //microservice világban nem használnak XA, mert lassú és drága, de működhetne
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<CourseDto> findAll() {
