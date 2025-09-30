@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 //String CourseCode helyett, hogy ne legyen probléma az itnerface-n
 public record AnnouncementRequest(
         @NotNull String code,
-        @NotNull String title
+        @NotNull String title,
+        @NotNull int limit
 ) {
 }

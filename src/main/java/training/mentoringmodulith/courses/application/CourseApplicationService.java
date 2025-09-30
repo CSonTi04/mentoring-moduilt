@@ -36,7 +36,7 @@ public class CourseApplicationService implements CourseService {
         if(courseRepository.existsWithCode(code)){
             throw new IllegalArgumentException("Course with code %s already exists".formatted(request.code()));
         }
-        var course = Course.announce(new CourseCode(request.code()), request.title());
+        var course = Course.announce(new CourseCode(request.code()), request.title(), request.limit());
         courseRepository.save(course);
     }
 }
