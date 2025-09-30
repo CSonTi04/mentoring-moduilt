@@ -10,16 +10,16 @@ import java.util.Optional;
 public interface EmployeeJpaEntityRepository extends JpaRepository<EmployeeJpaEntity, Long> {
     @Query("""
         select new training.mentoringmodulith.employees.application.inbound.EmployeeDto(
-        e.id, 
-        e.name) 
+        e.id,
+        e.name)
         from EmployeeJpaEntity e order by e.name
 """)
     List<EmployeeDto> findAllDto();
 
     @Query("""
         select new training.mentoringmodulith.employees.application.inbound.EmployeeDto(
-        e.id, 
-        e.name) 
+        e.id,
+        e.name)
         from EmployeeJpaEntity e where e.id = :id
 """)
     Optional<EmployeeDto> findDtoById(long id);

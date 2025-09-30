@@ -14,14 +14,6 @@ public interface CourseMapper {
         return new CourseCode(code);
     }
 
-    default Long map(EmployeeId employeeId) {
-        return employeeId.value();
-    }
-
-    default EmployeeId map(Long employeeId) {
-        return new EmployeeId(employeeId);
-    }
-
     CourseJpaEntity toEntity(Course course);
 
     Course toDomain(CourseJpaEntity entity);
