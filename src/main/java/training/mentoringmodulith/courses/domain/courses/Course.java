@@ -13,6 +13,10 @@ public class Course {
     //2003-ban nem volt még immutability, de most már van, így ott kérdéses, hogy mi legyen -> az inkább functional programming
     //ha egy entity létrehozása bonyolult akkor hasnzálj factory-t vagy builder-t -> bilder gang of four-os, de itt a builder az lehet factory is
     //gang of four factory vs DDD factory
+
+    //DDD-t nem éri meg tesztelés nélkül használni, ert a lényeg a domain logika, nem kell semmit mockolni, mert nincs külső függőség
+    //a domain logika tesztelése a lényeg, nem a frameworkök
+    //még mindig nem éri meg a crud szintű témákhoz
     private final CourseCode code;
 
     private final String title;
