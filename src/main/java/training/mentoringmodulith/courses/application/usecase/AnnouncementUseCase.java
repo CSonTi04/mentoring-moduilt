@@ -1,6 +1,6 @@
 package training.mentoringmodulith.courses.application.usecase;
 
-import training.mentoringmodulith.courses.application.AnnouncementRequest;
+import training.mentoringmodulith.courses.application.inboundport.AnnouncementRequest;
 import training.mentoringmodulith.courses.application.outboundport.CourseRepository;
 import training.mentoringmodulith.courses.domain.courses.Course;
 import training.mentoringmodulith.courses.domain.courses.CourseCode;

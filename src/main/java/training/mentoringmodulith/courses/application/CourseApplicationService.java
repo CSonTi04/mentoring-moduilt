@@ -1,6 +1,7 @@
 package training.mentoringmodulith.courses.application;
 
 
+import training.mentoringmodulith.courses.application.inboundport.AnnouncementRequest;
 import training.mentoringmodulith.courses.application.inboundport.CourseService;
 import training.mentoringmodulith.courses.application.outboundport.CourseRepository;
 import training.mentoringmodulith.courses.domain.courses.Course;

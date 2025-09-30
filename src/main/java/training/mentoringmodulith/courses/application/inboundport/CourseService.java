@@ -1,7 +1,5 @@
 package training.mentoringmodulith.courses.application.inboundport;
 
-import training.mentoringmodulith.courses.application.AnnouncementRequest;
-
 public interface CourseService {
     //külsőkkel tartja a kapcsolatot, de az entitásban van az üzleti logika
     //kell majd egy repository interface, ami egy port lesz, azaz egy outbound adapter
