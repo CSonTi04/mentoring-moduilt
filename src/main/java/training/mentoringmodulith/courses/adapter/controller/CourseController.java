@@ -22,6 +22,7 @@ public class CourseController {
     private final CourseQueryService queryService;
     //exception nem rest specifikus, így ne tegyünk az exception-re http statuszt
     //az application layer-ből jön a request, az ok, kintról befelé lehet hivatkozni
+    //tranzaikcióban fut a mögöttes implementáció, mert módosít adatot
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createCourse(@RequestBody AnnouncementRequest request) {
@@ -43,6 +44,7 @@ public class CourseController {
     //ezt hívják denormalizációnak, vagy csillag architektúra, ami a data warehouse-okban jellemző | OLAP
     //az architektúra nem kőbe vésett, készüljünk fel arra, hogy módosítható legyen
     //microservice világban nem használnak XA, mert lassú és drága, de működhetne
+    //nem tranzaikcióban fut a query ág, mert csak visszaad adatot
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<CourseDto> findAll() {
