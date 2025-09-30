@@ -7,7 +7,9 @@ import training.mentoringmodulith.courses.application.inboundport.EnrollmentRequ
 import training.mentoringmodulith.courses.application.usecase.AnnouncementUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import training.mentoringmodulith.courses.application.usecase.EmployeeHasLeavedUseCase;
 import training.mentoringmodulith.courses.application.usecase.EnrollmentUseCase;
+import training.mentoringmodulith.courses.domain.enrollments.EmployeeId;
 
 //ez már nem aggrregate-enként van, ez többet is magába foglalhat
 //domain service nem lesz, Java se meg tudja csinálni több entitás esetén, főleg számolások
@@ -28,6 +30,8 @@ public class CourseApplicationService implements CourseService {
 
     private final EnrollmentUseCase enrollmentUseCase;
 
+    private final EmployeeHasLeavedUseCase employeeHasLeavedUseCase;
+
     //külsőkkel tartja a kapcsolatot, de az entitásban van az üzleti logika
     //kell majd egy repository interface, ami egy port lesz, azaz egy outbound adapter
     //tesztelőknek jó lehet, ha itt visszatérünk valami azonosítóval
@@ -40,5 +44,10 @@ public class CourseApplicationService implements CourseService {
     @Override
     public void enroll(EnrollmentRequest request) {
         enrollmentUseCase.enroll(request);
+    }
+
+    @Override
+    public void employeeHasLeaved(long employeeId) {
+        employeeHasLeavedUseCase.leave(new EmployeeId(employeeId));
     }
 }

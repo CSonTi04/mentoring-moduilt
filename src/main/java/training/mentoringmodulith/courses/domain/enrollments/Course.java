@@ -84,4 +84,9 @@ public class Course {
                 .map(e -> new EnrollmentVO(e.getEmployeeId(), e.getEnrollmentDate()))
                 .toList();
     }
+
+    public void cancelEnrollment(EmployeeId employeeId) {
+        Objects.requireNonNull(employeeId, "EmployeeId cannot be null");
+        enrollments.removeIf(e -> e.getEmployeeId().equals(employeeId));
+    }
 }

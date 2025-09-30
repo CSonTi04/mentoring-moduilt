@@ -7,4 +7,6 @@ public interface CourseService {
     void announce(AnnouncementRequest request);
 
     void enroll(EnrollmentRequest request);
+
+    void employeeHasLeaved(long employeeId);
 }

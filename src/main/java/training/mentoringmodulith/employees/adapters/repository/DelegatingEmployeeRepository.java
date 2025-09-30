@@ -2,7 +2,7 @@ package training.mentoringmodulith.employees.adapters.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import training.mentoringmodulith.employees.application.outbound.EmployeeRepository;
+import training.mentoringmodulith.employees.application.outbound.repo.EmployeeRepository;
 import training.mentoringmodulith.employees.domain.employees.Employee;
 import training.mentoringmodulith.employees.application.inbound.EmployeeDto;
 import training.mentoringmodulith.employees.domain.employees.EmployeeId;

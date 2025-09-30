@@ -26,6 +26,6 @@ POST http://localhost:8080/api/courses/JAVAX-DDD/enrollments
 Content-Type: application/json
 
 {
-  "employeeId": 1,
+  "employeeId": 2,
   "courseCode": "JAVAX-DDD"
 }

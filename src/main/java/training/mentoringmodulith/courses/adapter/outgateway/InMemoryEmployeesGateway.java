@@ -1,4 +1,4 @@
-package training.mentoringmodulith.courses.adapter.gateway;
+package training.mentoringmodulith.courses.adapter.outgateway;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

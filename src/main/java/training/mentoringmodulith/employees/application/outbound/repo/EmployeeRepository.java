@@ -1,4 +1,4 @@
-package training.mentoringmodulith.employees.application.outbound;
+package training.mentoringmodulith.employees.application.outbound.repo;
 
 import training.mentoringmodulith.employees.domain.employees.Employee;
 import training.mentoringmodulith.employees.domain.employees.EmployeeId;
