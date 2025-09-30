@@ -6,6 +6,10 @@ This is a **proof-of-concept (POC)** project demonstrating **Domain-Driven Desig
 
 **Reference Repository**: This project is based on the training materials from [Training360's DDD Training Repository](https://github.com/Training360/javax-ddd-training-2025-09-29).
 
+### Architectural Evolution Note
+
+> **⚠️ Pivot Decision (2025-09-30)**: After this commit, the **courses aggregate** will be responsible for handling **jelentkezések (registrations)**, not just announcing courses. This architectural decision was made to save development time and simplify the domain model for the POC. In a production system, registrations might warrant their own bounded context and aggregate.
+
 ### Key Architectural Concepts Demonstrated
 
 - **Hexagonal Architecture**: Clear separation between business logic and external concerns
