@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MentoringModuiltApplication {
+public class MentoringModuilthApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MentoringModuiltApplication.class, args);
+        SpringApplication.run(MentoringModuilthApplication.class, args);
     }
 
 }
