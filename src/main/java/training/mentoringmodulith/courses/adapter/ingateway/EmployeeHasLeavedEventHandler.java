@@ -14,6 +14,9 @@ public class EmployeeHasLeavedEventHandler {
 
     private final CourseService courseService;
 
+
+    //ez most olyanra dependál, ami nincs megnyitva a courses modulban
+    //meg kell nyitni
     @EventListener
     public void handleEvent(EmployeeHasLeaved event) {
         log.info(event.toString());
